@@ -1,4 +1,4 @@
-<script setup>
+<script>
   const Info = [
  {Name:"Lebron James", IMG:"https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"},
  {Name:"Giannis Antetokounmpo", IMG:"https://cdn.nba.com/headshots/nba/latest/260x190/203507.png"},
@@ -23,5 +23,6 @@
  {Name:"Donovan Mitchell", IMG:"https://cdn.nba.com/headshots/nba/latest/260x190/1628378.png"},
  {Name:"Karl Anthony Towns", IMG:"https://cdn.nba.com/headshots/nba/latest/260x190/1626157.png"},
  {Name:"Julius Randle", IMG:"https://cdn.nba.com/headshots/nba/latest/260x190/203944.png"},
- {Name:"Trae Young" ,IMG:"https://cdn.nba.com/headshots/nba/latest/260x190/1629027.png"},]
+ {Name:"Trae Young" ,IMG:"https://cdn.nba.com/headshots/nba/latest/260x190/1629027.png"},] 
+ export default Info
 </script>
