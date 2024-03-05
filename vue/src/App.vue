@@ -8,13 +8,16 @@ const props = defineProps({
   Name : String,
    IMG : String, 
 })
+
 function Delete(){
   const member = document.getElementById('Members')
   const descrip = document.getElementById('description')
+  
   member.remove()
   descrip.remove();
-
 }
+
+
   function Move(item){
   cart.push(item)
   const txts = document.getElementById('txt')
@@ -30,15 +33,12 @@ function Delete(){
 <h1 class="Team">Your team</h1>
 <button class="btn" @click="Delete()"> Delete Recent</button>
 <div class ='Select' id="Select">
-  
  <h1 class="description" v-for="item in cart" id='description'>
 {{ item.Name }} 
 <img class="Members" id="Members" :src="item.IMG">
 </h1>
- 
+
 </div>
-
-
 <h1 class="intro"> Welcome to Evan's Draft Game</h1>
 <div class='card' id='card'> 
   <h1 class="txt" id="txt" v-for="item in Info"> {{item.Name}}
