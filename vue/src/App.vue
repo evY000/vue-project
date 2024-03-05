@@ -1,28 +1,38 @@
 
  <script setup>
+ import { reactive } from 'vue'
  import Info from '@/components/cards.vue'  
+
+const cart = reactive([])
 const props = defineProps({
   Name : String,
    IMG : String, 
 })
-
- function Remove(){
- 
- }
+function Delete(item){
+  item.delete(Info, "Name")
+}
+  function Move(item){
+  cart.push(item)
+  }
  </script>
-
 <template> 
 <Info :Name="Name" :IMG="IMG"/>
+
 <div class ='Select'>
- <h1 class="Team">Your Team</h1>
+ <h1 class="Team">Your team</h1>
+ <h1 class="description" v-for="item in cart">
+{{ item.Name }}
+<img class="Members" :src="item.IMG">
+<button class="btn" @click="Delete(item)"> Delete</button></h1>
+ 
 </div>
 
 
 <h1 class="intro"> Welcome to Evan's Draft Game</h1>
 <div class='card'> 
-  <h1 class="txt" v-for="item in Info">{{item.Name}}
-     <img class="img" :src="item.IMG"> <button class="btn" type="button" @click="Remove()">Select</button>
-      </h1> </div>
+  <h1 class="txt" v-for="item in Info"> {{item.Name}}
+     <img class="img" :src="item.IMG"> <button class="btn" type="button" @click="Move(item)">Select </button>
+  </h1> </div>
 
 </template> 
 
@@ -40,8 +50,24 @@ const props = defineProps({
 
 
 <style>
+.description{
+ margin-right: auto;
+  font-family:'Courier New', Courier, monospace;
+  color:cornflowerblue
+
+}
 body{
   background-color: #000000;
+}
+.Members{
+ margin-right: auto;
+  height:200px;
+  width:275px;
+  display: flex;
+  border: 20px;
+  border-style:solid;
+border-color: rgb(37, 87, 107);
+
 }
 .Team{
   font-family:'Courier New', Courier, monospace;
