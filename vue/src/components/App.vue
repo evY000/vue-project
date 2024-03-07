@@ -1,7 +1,12 @@
 
  <script setup>
+<<<<<<< HEAD:vue/src/App.vue
  import { reactive } from 'vue'
  import Info from '@/components/cards.js'  
+=======
+ import { reactive, ref } from 'vue'
+ import Info from '@/components/cards.vue'  
+>>>>>>> c1d97ea1dc239f70acfdf880e30dbfd5d164dbd3:vue/src/components/App.vue
 
 const cart = reactive([])
 const props = defineProps({
@@ -9,37 +14,38 @@ const props = defineProps({
    IMG : String, 
 })
 function Delete(){
-  const member = document.getElementById('Members')
-  const descrip = document.getElementById('description')
+/*   const member = document.getElementById('Members')
+  const descrip = document.getElementById('description') */
   
-  member.remove()
-  descrip.remove();
+  /* member.remove()
+  descrip.remove(); */
 }
   function Move(item){
   cart.push(item)
-  const txts = document.getElementById('txt')
+  /* const txts = document.getElementById('txt')
   const playerimg = document.getElementById('img')
-  const buttons = document.getElementById ('SelectButton')
-  txts.remove()
+  const buttons = document.getElementById ('SelectButton') */
+  this.$refs.txt.remove()
+ /*  txts.remove()
   playerimg.remove()
-  buttons.remove()
+  buttons.remove() */
   }
  </script>
 <template> 
 <Info :Name="Name" :IMG="IMG"/>
 <h1 class="Team">Your team</h1>
 <button class="btn" @click="Delete()"> Delete Recent</button>
-<div class ='Select' id="Select">
- <h1 class="description" v-for="item in cart" id='description'>
+<div class ='Select' ref="Select" v-for="item in cart">
+ <h1 class="description"  ref='description'>
 {{ item.Name }} 
 <img class="Members" id="Members" :src="item.IMG">
 </h1>
 
 </div>
 <h1 class="intro"> Welcome to Evan's Draft Game</h1>
-<div class='card' id='card'> 
-  <h1 class="txt" id="txt" v-for="item in Info"> {{item.Name}}
-     <img class="img"  id='img':src="item.IMG"> <button class="btn" id="SelectButton" type="button" @click="Move(item)">Select </button>
+<div class='card' ref='card' v-for="item in Info"> 
+  <h1 class="txt" ref='txt' > {{item.Name}}
+     <img class="img"  ref='img':src="item.IMG"> <button class="btn" ref="SelectButton" type="button" @click="Move(item)">Select </button>
   </h1> </div>
 
 </template> 
