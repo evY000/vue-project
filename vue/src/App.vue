@@ -1,14 +1,13 @@
 
  <script setup>
  import { reactive } from 'vue'
- import Info from '@/components/cards.vue'  
+ import Info from '@/components/cards.js'  
 
 const cart = reactive([])
 const props = defineProps({
   Name : String,
    IMG : String, 
 })
-
 function Delete(){
   const member = document.getElementById('Members')
   const descrip = document.getElementById('description')
@@ -16,8 +15,6 @@ function Delete(){
   member.remove()
   descrip.remove();
 }
-
-
   function Move(item){
   cart.push(item)
   const txts = document.getElementById('txt')
